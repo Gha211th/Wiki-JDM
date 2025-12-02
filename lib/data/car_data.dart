@@ -62,4 +62,14 @@ List<Car> carList = [
     attributes: {"Top Speed": "276 Hp", "engine": "RB26  Engine"},
     level: 18.0,
   ),
+
+  Car(
+    name: "Subaru BRZ",
+    image: "assets/images/brz.jpg",
+    description:
+        "Mobil RWD ringan hasil kolaborasi Subaru x Toyota saudaranya: Toyota 86/GR86 dan Scion FR-S BRZ terkenal karena handling yang sangat seimbang, chassis yang bagus.",
+    color: 'blue',
+    attributes: {"Top Speed": "270 Hp", "engine": "nothing"},
+    level: 18.0,
+  ),
 ];
