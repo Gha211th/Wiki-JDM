@@ -38,7 +38,20 @@ class DetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
               ],
             ),
-            Column(children: []),
+            const SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "More Specifications",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  "Color: ${car.color}",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
           ],
         ),
       ),

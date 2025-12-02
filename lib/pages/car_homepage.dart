@@ -60,19 +60,28 @@ class HomePage extends StatelessWidget {
                     child: Image.asset(car.image, fit: BoxFit.cover),
                   ),
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Center(
                       child: Text(
                         car.name,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 18,
                         ),
                       ),
                     ),
                   ),
-                  Expanded(flex: 3, child: Text("Engine: ${car.engine}")),
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      "Engine: ${car.engine}",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
