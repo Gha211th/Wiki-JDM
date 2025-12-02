@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
     final aspectRatio = getAspectRatio(width);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Future Cars Catalog")),
+      appBar: AppBar(title: const Text("Wiki Of JDM Cars~")),
       body: GridView.builder(
         padding: const EdgeInsets.all(12),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -72,6 +72,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Expanded(flex: 3, child: Text("Engine: ${car.engine}")),
                 ],
               ),
             ),
