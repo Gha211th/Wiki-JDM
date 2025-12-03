@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class BrandColors {
-  static const Map<String, Color> colors = {
+  static Map<String, Color> colors = {
     'Honda': Colors.redAccent,
-    'Nissan': Colors.red, // lebih identik dibanding biru
+    'Nissan': Colors.orangeAccent, // lebih identik dibanding biru
     'Toyota': Colors.grey, // cocok karena logo silver
     'Mazda': Colors.indigo, // warna resmi brand
     'Subaru': Colors.indigo, // biru Subaru
-    'Mitsubishi': Colors.deepOrange,
+    'Mitsubishi': Colors.red[700]!,
   };
 
   static Color getColor(String brand) {
