@@ -53,6 +53,30 @@ class _HomePageState extends State<HomePage> {
     return 7;
   }
 
+  double getFontSizeForTitleApp(double width) {
+    if (width >= 1600) return 34;
+    if (width >= 1200) return 30;
+    if (width >= 800) return 26;
+    if (width >= 480) return 22;
+    return 20;
+  }
+
+  double getFontSizeForTopTitleApp(double width) {
+    if (width >= 1600) return 13;
+    if (width >= 1200) return 12;
+    if (width >= 800) return 11;
+    if (width >= 480) return 10;
+    return 9;
+  }
+
+  double getFontSizeForSubTitle(double width) {
+    if (width >= 1600) return 15;
+    if (width >= 1200) return 14;
+    if (width >= 800) return 13;
+    if (width >= 480) return 12;
+    return 11;
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -60,7 +84,10 @@ class _HomePageState extends State<HomePage> {
     final aspectRatio = getAspectRatio(width);
     final fontSizeForTitle = getFontSizeForTitle(width);
     final fontSizeForEngine = getFontSizeForEngine(width);
-    final fontSizeForBranf = getFontSizeForTypeBrand(width);
+    final fontSizeForBrand = getFontSizeForTypeBrand(width);
+    final fontSizeForAppTitle = getFontSizeForTitleApp(width);
+    final fontSizeForTopText = getFontSizeForTopTitleApp(width);
+    final fontSizeForSubtitle = getFontSizeForSubTitle(width);
 
     // Filter mobil berdasarkan pencarian
     final filteredCars = carList.where((car) {
@@ -77,7 +104,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 '~ The Point Of JDM ~',
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: fontSizeForTopText,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
                 ),
@@ -86,13 +113,16 @@ class _HomePageState extends State<HomePage> {
                 "Banter JDM Car",
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 34,
+                  fontSize: fontSizeForAppTitle,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
                 "The wiki of jdm car",
-                style: TextStyle(fontSize: 15, fontFamily: 'Poppins'),
+                style: TextStyle(
+                  fontSize: fontSizeForSubtitle,
+                  fontFamily: 'Poppins',
+                ),
               ),
             ],
           ),
@@ -205,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                                     car.brand,
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: fontSizeForBranf,
+                                      fontSize: fontSizeForBrand,
                                     ),
                                   ),
                                 ),

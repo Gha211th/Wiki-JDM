@@ -20,7 +20,7 @@ List<Car> carList = [
   ),
 
   Car(
-    name: 'Toyota Trueno AE86',
+    name: 'Toyota AE86',
     image: "assets/images/ae86.png",
     description: "Initial D iconic Car~",
     color: 'black',
