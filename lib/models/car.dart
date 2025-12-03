@@ -4,6 +4,7 @@ class Car {
   final String description;
   final String color;
   final String engine;
+  final String brand;
 
   Car({
     required this.name,
@@ -11,5 +12,6 @@ class Car {
     required this.description,
     required this.color,
     required this.engine,
+    required this.brand,
   });
 }
