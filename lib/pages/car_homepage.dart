@@ -29,11 +29,38 @@ class _HomePageState extends State<HomePage> {
     return 0.65;
   }
 
+  double getFontSizeForTitle(double width) {
+    if (width >= 1600) return 18;
+    if (width >= 1200) return 17;
+    if (width >= 800) return 14;
+    if (width >= 480) return 13;
+    return 10;
+  }
+
+  double getFontSizeForEngine(double width) {
+    if (width >= 1600) return 12;
+    if (width >= 1200) return 10;
+    if (width >= 800) return 8;
+    if (width >= 480) return 8;
+    return 7;
+  }
+
+  double getFontSizeForTypeBrand(double width) {
+    if (width >= 1600) return 10;
+    if (width >= 1200) return 9;
+    if (width >= 800) return 8;
+    if (width >= 480) return 8;
+    return 7;
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final columnCount = getResponsiveColumn(width);
     final aspectRatio = getAspectRatio(width);
+    final fontSizeForTitle = getFontSizeForTitle(width);
+    final fontSizeForEngine = getFontSizeForEngine(width);
+    final fontSizeForBranf = getFontSizeForTypeBrand(width);
 
     // Filter mobil berdasarkan pencarian
     final filteredCars = carList.where((car) {
@@ -148,17 +175,17 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Text(
                                   car.name,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 16,
+                                    fontSize: fontSizeForTitle,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
                                   car.engine,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: fontSizeForEngine,
                                   ),
                                 ),
                                 const SizedBox(height: 7),
@@ -176,9 +203,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: Text(
                                     car.brand,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 10,
+                                      fontSize: fontSizeForBranf,
                                     ),
                                   ),
                                 ),

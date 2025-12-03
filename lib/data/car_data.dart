@@ -74,7 +74,7 @@ List<Car> carList = [
   ),
 
   Car(
-    name: "Mitsubishi Lancer Evo 7",
+    name: "Mitsubishi Lancer Evo",
     image: "assets/images/evo7.jpg",
     description: "The Rally Reaper",
     color: 'white',
