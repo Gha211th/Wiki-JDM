@@ -22,7 +22,29 @@ class DetailPage extends StatelessWidget {
     final fontSizeForBrand = getFontSizeForTypeBrand(width);
 
     return Scaffold(
-      appBar: AppBar(title: Text(car.name)),
+      appBar: AppBar(
+        toolbarHeight: 90,
+        title: Row(
+          children: [
+            Text(car.name),
+            const SizedBox(width: 15),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: BrandColors.getColor(car.brand),
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: Text(
+                '${car.brand}',
+                style: TextStyle(fontSize: fontSizeForBrand),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: isMobile

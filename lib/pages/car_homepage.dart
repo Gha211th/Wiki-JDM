@@ -186,12 +186,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-
             const SizedBox(height: 10),
-
-            // --------------------------------------------------------
-            // SEARCH BAR
-            // --------------------------------------------------------
             Padding(
               padding: const EdgeInsets.all(12),
               child: TextField(
@@ -217,10 +212,6 @@ class _HomePageState extends State<HomePage> {
             ),
 
             const SizedBox(height: 10),
-
-            // --------------------------------------------------------
-            // GRID VIEW (shrinkWrap)
-            // --------------------------------------------------------
             GridView.count(
               padding: const EdgeInsets.all(12),
               physics: const NeverScrollableScrollPhysics(),
