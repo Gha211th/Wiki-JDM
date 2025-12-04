@@ -8,6 +8,7 @@ List<Car> carList = [
     color: 'red',
     engine: 'V6 3.0 liter',
     brand: 'Honda',
+    speed: '± 270 km/h',
   ),
 
   Car(
@@ -17,6 +18,7 @@ List<Car> carList = [
     color: 'white',
     engine: 'SR20DET (2.0 L turbo)',
     brand: 'Nissan',
+    speed: '± 225 km/h',
   ),
 
   Car(
@@ -26,6 +28,7 @@ List<Car> carList = [
     color: 'black',
     engine: '4A-GE 1.6L DOHC',
     brand: 'Toyota',
+    speed: '± 200 km/h',
   ),
 
   Car(
@@ -35,6 +38,7 @@ List<Car> carList = [
     color: 'white',
     engine: '2JZ-GTE',
     brand: 'Toyota',
+    speed: '± 250 km/h (Limit)',
   ),
 
   Car(
@@ -44,6 +48,7 @@ List<Car> carList = [
     color: 'blue',
     engine: 'Rotary Twin Turbo',
     brand: 'Mazda',
+    speed: '± 250 km/h',
   ),
 
   Car(
@@ -53,6 +58,7 @@ List<Car> carList = [
     color: 'blue',
     engine: 'RB26',
     brand: 'Nissan',
+    speed: '± 250 km/h (Limit)',
   ),
 
   Car(
@@ -62,6 +68,7 @@ List<Car> carList = [
     color: 'blue',
     engine: '2.0L Flat-4 Boxer (NA)',
     brand: 'Subaru',
+    speed: '± 230 km/h',
   ),
 
   Car(
@@ -71,6 +78,7 @@ List<Car> carList = [
     color: 'blue',
     engine: 'K20',
     brand: 'Honda',
+    speed: '± 220 km/h',
   ),
 
   Car(
@@ -80,6 +88,7 @@ List<Car> carList = [
     color: 'white',
     engine: '4G63T 2.0L Turbo',
     brand: 'Mitsubishi',
+    speed: '± 250 km/h (EVO 7)',
   ),
 
   Car(
@@ -89,6 +98,7 @@ List<Car> carList = [
     color: 'blue',
     engine: 'SR20DET',
     brand: 'Nissan',
+    speed: '± 240 km/h',
   ),
 
   Car(
@@ -98,6 +108,7 @@ List<Car> carList = [
     color: 'white',
     engine: 'RB26DETT',
     brand: 'Nissan',
+    speed: '± 250 km/h (Limit)',
   ),
 
   Car(
@@ -107,5 +118,6 @@ List<Car> carList = [
     color: 'red',
     engine: '13B Turbo (Rotary)',
     brand: 'Mazda',
+    speed: '± 230 km/h (Ver Turbo II)',
   ),
 ];

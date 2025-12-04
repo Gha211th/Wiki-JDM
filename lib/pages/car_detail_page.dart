@@ -8,11 +8,11 @@ class DetailPage extends StatelessWidget {
   const DetailPage({super.key, required this.car});
 
   double getFontSizeForTypeBrand(double width) {
-    if (width >= 1600) return 10;
-    if (width >= 1200) return 9;
-    if (width >= 800) return 8;
-    if (width >= 480) return 8;
-    return 7;
+    if (width >= 1600) return 15;
+    if (width >= 1200) return 14;
+    if (width >= 800) return 13;
+    if (width >= 480) return 12;
+    return 11;
   }
 
   @override
@@ -130,7 +130,7 @@ class DetailPage extends StatelessWidget {
             const SizedBox(height: 8),
             Text("Engine Type: ${car.engine}", style: TextStyle(fontSize: 16)),
             const SizedBox(height: 8),
-            Text("Engine: ${car.engine}", style: TextStyle(fontSize: 16)),
+            Text("Speed: ${car.speed}", style: TextStyle(fontSize: 16)),
           ],
         ),
       ),
@@ -169,7 +169,7 @@ class DetailPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Text(
-                "Brand: ${car.brand}",
+                "${car.brand}",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: fontSizeForBrand,
