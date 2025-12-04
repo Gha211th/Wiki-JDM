@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/car.dart';
 import 'package:flutter_application_1/pages/car_detail_page.dart';
 import 'package:flutter_application_1/data/car_data.dart';
 import 'package:flutter_application_1/utils/brand_color.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +14,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String searchQuery = "";
+
+  final List<String> carouselImages = [
+    "assets/images/r34.png",
+    "assets/images/r32.png",
+    "assets/images/s13.jpg",
+    "assets/images/s15.png",
+    "assets/images/supra.png",
+    "assets/images/rx7fd.png",
+    "assets/images/rx7fc.png",
+    "assets/images/brz.png",
+    "assets/images/ae86.png",
+    "assets/images/nsx.png",
+    "assets/images/civic.png",
+    "assets/images/evo7.png",
+  ];
 
   int getResponsiveColumn(double width) {
     if (width >= 1600) return 6;
@@ -77,6 +94,14 @@ class _HomePageState extends State<HomePage> {
     return 11;
   }
 
+  double getImageWidth(double width) {
+    if (width >= 1600) return 700; // Layar gede
+    if (width >= 1200) return 500; // Laptop
+    if (width >= 800) return 420; // Tablet
+    if (width >= 480) return 400; // HP besar
+    return 350; // HP kecil
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -88,6 +113,7 @@ class _HomePageState extends State<HomePage> {
     final fontSizeForAppTitle = getFontSizeForTitleApp(width);
     final fontSizeForTopText = getFontSizeForTopTitleApp(width);
     final fontSizeForSubtitle = getFontSizeForSubTitle(width);
+    final imageSizeCarousel = getImageWidth(width);
 
     // Filter mobil berdasarkan pencarian
     final filteredCars = carList.where((car) {
@@ -129,50 +155,81 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: TextField(
-              onChanged: (value) {
-                setState(() => searchQuery = value);
-              },
-              decoration: InputDecoration(
-                hintText: "Search car name...",
-                prefixIcon: const Icon(Icons.search),
-                filled: true,
-                fillColor: Colors.white10,
-                contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white54, // warna outline normal
-                    width: 2,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final double width = constraints.maxWidth;
+                  final double height = width * 6 / 16; // responsive 16:9
+
+                  return CarouselSlider(
+                    items: carouselImages.map((img) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          img,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      viewportFraction: 0.6,
+                      height: height,
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            // --------------------------------------------------------
+            // SEARCH BAR
+            // --------------------------------------------------------
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() => searchQuery = value);
+                },
+                decoration: InputDecoration(
+                  hintText: "Search car name...",
+                  prefixIcon: const Icon(Icons.search),
+                  filled: true,
+                  fillColor: Colors.white10,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white54, width: 2),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white70, // warna ketika fokus
-                    width: 2.5,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white70, width: 2.5),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
             ),
-          ),
 
-          Expanded(
-            child: GridView.builder(
+            const SizedBox(height: 10),
+
+            // --------------------------------------------------------
+            // GRID VIEW (shrinkWrap)
+            // --------------------------------------------------------
+            GridView.count(
               padding: const EdgeInsets.all(12),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: columnCount,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: aspectRatio,
-              ),
-              itemCount: filteredCars.length,
-              itemBuilder: (context, index) {
-                final car = filteredCars[index];
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              crossAxisCount: columnCount,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              childAspectRatio: aspectRatio,
+              children: filteredCars.map((car) {
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -247,10 +304,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 );
-              },
+              }).toList(),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
