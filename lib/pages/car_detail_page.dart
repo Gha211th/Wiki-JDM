@@ -53,15 +53,10 @@ class DetailPage extends StatelessWidget {
       ),
     );
   }
-
-  // ============================
-  // DESKTOP LAYOUT
-  // ============================
   Widget _buildDesktopLayout(double fontSizeForBrand) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // ---------- IMAGE ----------
         Expanded(
           flex: 2,
           child: Card(
@@ -82,8 +77,6 @@ class DetailPage extends StatelessWidget {
         ),
 
         const SizedBox(width: 20),
-
-        // ---------- RIGHT SIDE ----------
         Expanded(
           flex: 1,
           child: Column(
@@ -98,10 +91,6 @@ class DetailPage extends StatelessWidget {
       ],
     );
   }
-
-  // ============================
-  // MOBILE LAYOUT
-  // ============================
   Widget _buildMobileLayout(double fontSizeForBrand) {
     return SingleChildScrollView(
       child: Column(
@@ -130,11 +119,6 @@ class DetailPage extends StatelessWidget {
       ),
     );
   }
-
-  // ============================
-  // CARDS
-  // ============================
-
   Widget _buildSpecsCard() {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -158,8 +142,6 @@ class DetailPage extends StatelessWidget {
       ),
     );
   }
-
-  // menerima *fontSizeForBrand* dari build()
   Widget _buildHistoryCard(double fontSizeForBrand) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -177,10 +159,7 @@ class DetailPage extends StatelessWidget {
               "Initial D iconic Car~",
               style: TextStyle(fontSize: 15, color: Colors.white70),
             ),
-
             const SizedBox(height: 10),
-
-            // Brand Chip
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
               decoration: BoxDecoration(
