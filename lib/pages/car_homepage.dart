@@ -141,18 +141,18 @@ class _HomePageState extends State<HomePage> {
                 hintText: "Search car name...",
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
-                fillColor: Colors.black,
+                fillColor: Colors.white10,
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.white70, // warna outline normal
+                    color: Colors.white54, // warna outline normal
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.white, // warna ketika fokus
+                    color: Colors.white70, // warna ketika fokus
                     width: 2.5,
                   ),
                   borderRadius: BorderRadius.circular(12),
