@@ -9,6 +9,7 @@ List<Car> carList = [
     engine: 'V6 3.0 liter',
     brand: 'Honda',
     speed: '± 270 km/h',
+    year: '1990–1997',
   ),
 
   Car(
@@ -19,6 +20,7 @@ List<Car> carList = [
     engine: 'SR20DET (2.0 L turbo)',
     brand: 'Nissan',
     speed: '± 225 km/h',
+    year: '1988–1994',
   ),
 
   Car(
@@ -29,6 +31,7 @@ List<Car> carList = [
     engine: '4A-GE 1.6L DOHC',
     brand: 'Toyota',
     speed: '± 200 km/h',
+    year: '1983–1987',
   ),
 
   Car(
@@ -39,6 +42,7 @@ List<Car> carList = [
     engine: '2JZ-GTE',
     brand: 'Toyota',
     speed: '± 250 km/h (Limit)',
+    year: '1993–2002',
   ),
 
   Car(
@@ -49,6 +53,7 @@ List<Car> carList = [
     engine: 'Rotary Twin Turbo',
     brand: 'Mazda',
     speed: '± 250 km/h',
+    year: '1992–2002',
   ),
 
   Car(
@@ -59,6 +64,7 @@ List<Car> carList = [
     engine: 'RB26',
     brand: 'Nissan',
     speed: '± 250 km/h (Limit)',
+    year: '1989–1994',
   ),
 
   Car(
@@ -69,6 +75,7 @@ List<Car> carList = [
     engine: '2.0L Flat-4 Boxer (NA)',
     brand: 'Subaru',
     speed: '± 230 km/h',
+    year: '2012–2020',
   ),
 
   Car(
@@ -79,16 +86,18 @@ List<Car> carList = [
     engine: 'K20',
     brand: 'Honda',
     speed: '± 220 km/h',
+    year: '1991–1995',
   ),
 
   Car(
-    name: "Mitsubishi Lancer Evo",
+    name: "Mitsubishi Lancer",
     image: "assets/images/evo7.png",
     description: "The Rally Reaper",
     color: 'white',
     engine: '4G63T 2.0L Turbo',
     brand: 'Mitsubishi',
     speed: '± 250 km/h (EVO 7)',
+    year: '2001–2002',
   ),
 
   Car(
@@ -99,6 +108,7 @@ List<Car> carList = [
     engine: 'SR20DET',
     brand: 'Nissan',
     speed: '± 240 km/h',
+    year: '1999–2002',
   ),
 
   Car(
@@ -109,6 +119,7 @@ List<Car> carList = [
     engine: 'RB26DETT',
     brand: 'Nissan',
     speed: '± 250 km/h (Limit)',
+    year: '1999–2002',
   ),
 
   Car(
@@ -119,5 +130,6 @@ List<Car> carList = [
     engine: '13B Turbo (Rotary)',
     brand: 'Mazda',
     speed: '± 230 km/h (Ver Turbo II)',
+    year: '1985–1992',
   ),
 ];

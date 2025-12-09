@@ -6,6 +6,7 @@ class Car {
   final String engine;
   final String brand;
   final String speed;
+  final String year;
 
   Car({
     required this.name,
@@ -15,5 +16,6 @@ class Car {
     required this.engine,
     required this.brand,
     required this.speed,
+    required this.year,
   });
 }

@@ -75,6 +75,14 @@ class _HomePageState extends State<HomePage> {
     return 7;
   }
 
+  double getFontSizeForYear(double width) {
+    if (width >= 1600) return 10;
+    if (width >= 1200) return 8;
+    if (width >= 800) return 7;
+    if (width >= 480) return 6;
+    return 5;
+  }
+
   double getFontSizeForTypeBrand(double width) {
     if (width >= 1600) return 10;
     if (width >= 1200) return 9;
@@ -126,6 +134,7 @@ class _HomePageState extends State<HomePage> {
     final fontSizeForAppTitle = getFontSizeForTitleApp(width);
     final fontSizeForTopText = getFontSizeForTopTitleApp(width);
     final fontSizeForSubtitle = getFontSizeForSubTitle(width);
+    final fontSizeForYear = getFontSizeForYear(width);
     final imageSizeCarousel = getImageWidth(width);
 
     // Filter mobil berdasarkan pencarian
@@ -280,7 +289,7 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 15),
 
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Column(
@@ -299,6 +308,14 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: fontSizeForEngine,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  '#Production: ${car.year}',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: fontSizeForYear,
                                   ),
                                 ),
                                 const SizedBox(height: 7),
