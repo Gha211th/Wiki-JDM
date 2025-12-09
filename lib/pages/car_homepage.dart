@@ -4,6 +4,7 @@ import 'package:flutter_application_1/pages/car_detail_page.dart';
 import 'package:flutter_application_1/data/car_data.dart';
 import 'package:flutter_application_1/utils/brand_color.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+import 'package:flutter_application_1/components/brand_filter_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,6 +29,18 @@ class _HomePageState extends State<HomePage> {
     "assets/images/nsx.png",
     "assets/images/civic.png",
     "assets/images/evo7.png",
+  ];
+
+  String selectedBrand = "All";
+
+  final List<String> brands = [
+    "All",
+    "Toyota",
+    "Nissan",
+    "Honda",
+    "Mazda",
+    "Subaru",
+    "Mitsubishi",
   ];
 
   int getResponsiveColumn(double width) {
@@ -117,7 +130,12 @@ class _HomePageState extends State<HomePage> {
 
     // Filter mobil berdasarkan pencarian
     final filteredCars = carList.where((car) {
-      return car.name.toLowerCase().contains(searchQuery.toLowerCase());
+      final matchSearch = car.name.toLowerCase().contains(
+        searchQuery.toLowerCase(),
+      );
+      final matchBrand =
+          (selectedBrand == "All") || (car.brand == selectedBrand);
+      return matchSearch && matchBrand;
     }).toList();
 
     return Scaffold(
@@ -208,6 +226,23 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
+              ),
+            ),
+            const SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  BrandFilterList(
+                    brands: brands,
+                    selectedBrand: selectedBrand,
+                    onSelected: (value) {
+                      setState(() => selectedBrand = value);
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                ],
               ),
             ),
 
